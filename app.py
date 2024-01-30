@@ -1,4 +1,4 @@
-import streamlit as st
+simport streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -13,24 +13,15 @@ def main():
     selected_patient_id = st.selectbox("Select Patient_ID:", df["Patient_ID"].unique())
 
     # Create a radio button to switch between functionalities
-    mode = st.radio("Select Mode:", ("View Summary", "View Enhanced Summary"))
+    mode = st.radio("Select Mode:", ("View Summaries"))
 
-    if mode == "View Summary":
-        if st.button("View Summary"):
+    if mode == "View Summaries":
+        if st.button("View Summaries"):
             if selected_patient_id:
                 # Retrieve and display the summary for the selected Patient_ID
-                selected_summary = df[df["Patient_ID"] == selected_patient_id]["Summary"].values[0]
-                st.subheader("Patient Summary:")
+                selected_summary = df[df["Patient_ID"] == selected_patient_id]["Summaries"].values[0]
+                st.subheader("Patient Summaries:")
                 st.write(selected_summary)
-            else:
-                st.warning("Please select a Patient_ID.")
-    else:
-        if st.button("View Enhanced Summary"):
-            if selected_patient_id:
-                # Retrieve and display the enhanced summary for the selected Patient_ID
-                enhanced_summary = df[df["Patient_ID"] == selected_patient_id]["Enhanced_Summary"].values[0]
-                st.subheader("Enhanced Patient Summary:")
-                st.write(enhanced_summary)
             else:
                 st.warning("Please select a Patient_ID.")
 
