@@ -15,7 +15,7 @@ def main():
     if st.button("View Summary"):
         if selected_patient_id:
             # Retrieve and display the summary for the selected Patient_ID
-            selected_summary = df[df["Patient_ID"] == selected_patient_id]["Summary"].values[0]
+            selected_summary = df[df["Patient_ID"] == selected_patient_id]["Summaries"].values[0]
             st.subheader("Patient Summary:")
             st.write(selected_summary)
         else:
